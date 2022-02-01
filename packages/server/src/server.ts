@@ -1,12 +1,16 @@
 import express from "express";
 import 'dotenv/config'
 import pool from "../pgconfig";
-
 require('dotenv').config()
 
+// Express module configuration
 const app = express();
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json())
 
+// Express endpoints 
 app.get('/actions', (req, res) => {
   pool.query('SELECT author FROM git_actions', (error, results) => {
     if (error) {
@@ -21,4 +25,5 @@ app.post('/githooks', (req, res) => {
   res.json(action);
 });
 
-app.listen(3333);
+// Express server 
+app.listen(process.env.SERVER_PORT);
