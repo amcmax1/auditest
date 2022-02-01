@@ -14,7 +14,9 @@ services:
       - back-tier
     depends_on:
       - postgres-db
-    restart: always
+    working_dir: /usr/local/src/
+    volumes:
+      - .:/usr/local/src/
 
   postgres-db:
     expose:
@@ -35,7 +37,6 @@ services:
 volumes:
   pgReportData:
     driver: local
-  node_modules:
 
 networks:
   back-tier:

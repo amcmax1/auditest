@@ -9,5 +9,4 @@ RUN yarn install
 COPY ./packages/$BUILD_CONTEXT packages/$BUILD_CONTEXT
 RUN yarn build:$BUILD_CONTEXT
 EXPOSE 3333
-RUN yarn global add nodemon
-ENTRYPOINT ["yarn", "server-dev"]
+ENTRYPOINT ["yarn", "start"]
