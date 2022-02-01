@@ -1,21 +1,11 @@
 import express from "express";
 import 'dotenv/config'
+import pool from "../pgconfig";
 
 require('dotenv').config()
 
-const { Pool } = require('pg')
-
 const app = express();
 app.use(express.json())
-
-const isProduction = process.env.NODE_ENV === 'production'
-
-const connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
-
-const pool = new Pool({
-  connectionString: connectionString,
-  ssl: isProduction,
-})
 
 app.get('/actions', (req, res) => {
   pool.query('SELECT author FROM git_actions', (error, results) => {
