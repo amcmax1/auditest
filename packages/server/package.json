@@ -17,6 +17,7 @@
     "sequelize": "^6.15.0"
   },
   "scripts": {
-    "dev": "nodemon --legacy-watch src/server.ts"
+    "dev": "nodemon --legacy-watch src/server.ts",
+    "migrate": "node-pg-migrate"
   }
 }
