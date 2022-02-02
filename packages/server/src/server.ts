@@ -12,6 +12,8 @@ require('dotenv').config()
 //TODO: create client connection handlers 
 //TODO: create data grid component on client
 
+console.log("Server restarted")
+
 // Express module configuration
 const app = express();
 app.use(express.urlencoded({
@@ -24,19 +26,31 @@ app.get('/actions', async (req, res) => {
   const result = await pg_knex
       .select()
       .from('git_actions')
+
   res.json({
       actions: result
   });
+
   console.log(result)
 });
 
 // Git WebHooks endpoint
-app.post('/githooks', (req, res) => {
-  // validate headers: action type, origin, repository
-  // send payload to hooks handler to store raw webhook post payload with headers into git_hooks table
-  const action = req.body.stringify
-  // route to action specific handler
-  res.status(200).json(action);
+app.post('/git_hooks', async (req, res) => {
+  // validation handler: validate user-agent, repository_id, host_source
+  const body_data = req.body
+  const headers = req.headers
+
+  const git_hook = await pg_knex('git_hooks').insert(
+    {
+      headers: headers,
+      raw_data: {"data": "data"}, //TODO: remove field
+      body_data: body_data,
+      sender_ip: headers["user-agent"]
+    }
+  );
+  // route request body to action-specific handler: pull request, etc. 
+
+  res.status(200).json("OK");
 });
 
 // Express server 
