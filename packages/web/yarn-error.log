@@ -1,0 +1,84 @@
+Arguments: 
+  /opt/homebrew/Cellar/nvm/0.39.1/versions/node/v17.3.0/bin/node /opt/homebrew/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/amirmc/Projects/go/bin:/usr/local/go/bin:/opt/homebrew/opt/nvm/versions/node/v17.3.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/amirmc/.rvm/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  17.3.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/amirmc/Projects/tests/auditech/versions/v1/packages/web/package.json: Unexpected token } in JSON at position 612
+      at JSON.parse (<anonymous>)
+      at /opt/homebrew/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/opt/homebrew/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:310:30)
+      at /opt/homebrew/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "web",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@mui/material": "^5.4.0",
+      "@mui/x-data-grid": "^5.5.0",
+      "@testing-library/jest-dom": "^5.16.1",
+      "@testing-library/react": "^12.1.2",
+      "@testing-library/user-event": "^13.5.0",
+      "@types/jest": "^27.4.0",
+      "@types/node": "^16.11.21",
+      "@types/react": "^17.0.38",
+      "@types/react-dom": "^17.0.11",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-scripts": "5.0.0",
+      "typescript": "^4.5.5",
+      "web-vitals": "^2.1.4",
+      "@mui/material": "^5.0.0",
+      "styled-components": "^5.3.1",
+    },
+        "devDependencies": {
+          "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
+          "@types/styled-components": "^5.1.14",
+        },
+      "resolutions": {
+        "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+      },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
