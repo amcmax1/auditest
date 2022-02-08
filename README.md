@@ -20,7 +20,7 @@ docker exec -it ${docker-image-id} bash
 psql -h postgres-db -p 5432 -U admin -d testdb -W
 
 ### Web App Client Material UI MIT data grid
-![alt text](/img/mit-mui-data-grid-screenshot.png)
+![alt text](/resources/mit-mui-data-grid-screenshot.png)
 
 ### Data Models 
 
