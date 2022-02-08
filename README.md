@@ -15,6 +15,9 @@ auditest server: http://localhost:3333
 ### PSQL CLI:
 docker exec -it ${docker-image-id} bash
 psql -h postgres-db -p 5432 -U admin -d testdb -W
+
+### Web App Client Material UI MIT data grid
+![alt text](/img/mit-mui-data-grid-screenshot.png)
 ### Data Models 
 ##### CREATE TABLE repositories
 id PRIMARY KEY
