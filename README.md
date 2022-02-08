@@ -1,12 +1,33 @@
 # v1
+
+### Basic Local Setup
+- clone repo
+- set up a separate test repo with GitWebooks
+- setup ngrok account locally
+- point test repo Gitwebooks to localhost:3333/git_hooks endpoint
+- create .env file in v1 root with postgres docker image (docker-compose.yml) credentials
+- in v1 root directory run: "docker-compose up --build"
+- in ngrok application directory run: "./ngrok http 127.0.0.1:3333 -host-header="127.0.0.1:3333" "
+
+
+### Browser clients
+ngrok web client: http://127.0.0.1:4040/inspect/http
+client web app: http://localhost:3000
+auditest server: http://localhost:3333
+
+### PSQL CLI:
+docker exec -it ${docker-image-id} bash
+psql -h postgres-db -p 5432 -U admin -d testdb -W
+
+### Web App Client Material UI MIT data grid
+![alt text](/img/mit-mui-data-grid-screenshot.png)
+
 ### Data Models 
 
 ##### CREATE TABLE repositories
 id PRIMARY KEY
 github_api_key STRING
 org_id FOREIGN KEY organizations
-...
-...
 
 ##### CREATE TABLE git_hooks
 id PRIMARY KEY
@@ -43,6 +64,10 @@ pr_updated
 id PRIMARY KEY
 repository_id FOREIGN KEY repositories
 
+##### CREATE TABLE branches/refs
+id PRIMARY KEY
+repository_id FOREIGN KEY repositories
+
 ##### CREATE TABLE branch_pull_requests
 id PRIMARY KEY
 pull_request_id FOREIGN KEY pull_requests
@@ -51,6 +76,12 @@ type ENUM (base, head, tag, remote, other)
 commit_sha STRING OR FOREIGN KEY
 
 ##### CREATE TABLE commits
+id PRIMARY KEY
+sha STRING 
+message_body STRING TEXT
+pull_request_id FOREIGN KEY pull_requests
+branch_id FOREIGN KEY branches
+contributor_id FOREIGN KEY contributors
 
 ##### CREATE TABLE USERS
 id PRIMARY KEY
