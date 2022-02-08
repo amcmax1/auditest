@@ -50,7 +50,13 @@ app.post('/git_hooks', async (req, res) => {
   );
   // route request body to action-specific handler: pull request, etc. 
 
-  res.status(200).json("OK");
+  const git_hooks = await pg_knex.select().table('git_hooks')
+  res.status(200).json(git_hooks);
+});
+
+app.get('/git_hooks', async (req, res) => {
+  const git_hooks = await pg_knex.select().table('git_hooks')
+  res.status(200).json(git_hooks);
 });
 
 // Express server 
