@@ -67,5 +67,3 @@ git_host string or enum (github, gitlab, bitbucket, internal, unknown)
 host_metadata JSONB
 github_metadata JSONB (gh_user_id string, gh_node_id string, gh_urls JSONB, gh_type string, gh_site_admin BINARY)
 user_id FOREIGN KEY users table
-
-
