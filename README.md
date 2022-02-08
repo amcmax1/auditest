@@ -5,7 +5,7 @@
 - set up a separate test repo with GitWebooks
 - setup ngrok account locally
 - point test repo Gitwebooks to localhost:3333/git_hooks endpoint
-- create .env file in v1 root with postgres docker image (docker-compose.yml) credentials
+- create .env file in packages/server directory with root docker-compose.yml credentials
 - in v1 root directory run: "docker-compose up --build"
 - in ngrok application directory run: "./ngrok http 127.0.0.1:3333 -host-header="127.0.0.1:3333" "
 
